@@ -1,0 +1,18 @@
+[build]
+  # The directory that Netlify will serve as the root of the site.  All of the
+  # compiled HTML, CSS, JS and assets live in the repository root.  When
+  # deploying the site simply point the publish directory here.
+  publish = "."
+
+# In preview environments we disable indexing by search engines.  Netlify
+# automatically injects these headers when running in a deploy preview.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[functions]
+  # Directory containing Netlify serverless functions.  These functions
+  # handle tasks like sending contact-form emails via Resend.  See
+  # `netlify/functions/send-email.js` for implementation details.
+  directory = "netlify/functions"

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Area – DC Performance Coaching</title>
+    <meta
+      name="description"
+      content="Access exclusive training content, weekly coaching calls and community support in the DC Performance Coaching members area.  Coming soon!"
+    />
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-p1J1l+ChOWuC2DdvexO3YOk1GMqtUx24TAL7E6H28uGcvo95DaEIbX4QK1s4xM4piw24+rMpp4IPuu8m4IS7Dw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Site styles & JS -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/cookie-consent.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+  </head>
+  <body class="page-members">
+    <!-- Cookie banner -->
+    <div id="cookie-banner" class="cookie-banner">
+      <p>
+        We use cookies to improve your browsing experience and analyse website traffic.  By clicking
+        “Accept”, you consent to our use of cookies.  For more details, please read our
+        <a href="privacy.html">Privacy Policy</a>.
+      </p>
+      <button id="cookie-accept-btn" class="btn">Accept</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-inner container">
+        <a href="index.html" class="logo"
+          ><img src="assets/images/clients/Logo.jpg" alt="DC Performance Coaching logo"
+        /></a>
+        <nav>
+          <div class="nav-toggle" aria-label="Open navigation">
+            <span></span><span></span><span></span>
+          </div>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Book</a></li>
+            <li><a href="members.html" class="active">Members</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Members hero section -->
+      <section class="hero" style="background-image: url('assets/images/clients/DC_Sport_6.jpg'); background-size: cover; background-position: center;">
+        <div class="content">
+          <h1>Members Area</h1>
+          <p>Exclusive access to premium content, live Q&amp;A sessions, programme downloads and more.</p>
+        </div>
+      </section>
+
+      <!-- Coming soon section -->
+      <section class="section reveal">
+        <div class="container">
+          <h2 class="section-title">Coming Soon</h2>
+          <p class="section-subtitle">We’re building an exclusive members portal where you’ll be able to access advanced training programmes, live webinars with Daniel, a supportive community and behind‑the‑scenes content.</p>
+          <p>
+            Register your interest below to be the first to know when the members area launches and receive early bird pricing.
+          </p>
+          <form class="contact-form" id="members-interest-form">
+            <div class="form-group">
+              <label for="member-name">Name</label>
+              <input type="text" id="member-name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="member-email">Email</label>
+              <input type="email" id="member-email" name="email" required />
+            </div>
+            <button type="submit" class="btn">Register Interest</button>
+            <p id="members-status" class="form-status" style="display:none;"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Motivational video section -->
+      <section class="section reveal">
+        <div class="container">
+          <h2 class="section-title">Get Inspired</h2>
+          <p class="section-subtitle">Watch Daniel in action and imagine what you could achieve.</p>
+          <div class="video-wrapper">
+            <video controls poster="assets/images/clients/DC_Sport_7.jpg">
+              <source src="assets/videos/DC_Sport_Highlight_Vid_2.mp4" type="video/mp4" />
+              <source src="assets/videos/DC_Sport_Highlight_Vid_2.mp4" type="video/quicktime" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Unified Footer -->
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-col">
+          <h4>DC Performance Coaching</h4>
+          <p>Empowering you to move, perform and live better through science‑based coaching and personalised support.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Book</a></li>
+            <li><a href="members.html" class="active">Members</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>Email: <a href="mailto:info@dcperformancecoaching.com">info@dcperformancecoaching.com</a></li>
+            <li>Follow us:</li>
+          </ul>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="text-align:center; margin-top:2rem; font-size:0.8rem;">
+        &copy; 2025 DC Performance Coaching. All rights reserved. <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </footer>
+
+    <!-- Members form script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('members-interest-form');
+        const statusEl = document.getElementById('members-status');
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          statusEl.style.display = 'none';
+          const name = document.getElementById('member-name').value;
+          const email = document.getElementById('member-email').value;
+          const payload = { name, email, subject: 'Members Area Interest', message: 'A user registered their interest in the members area.' };
+          try {
+            const res = await fetch('/.netlify/functions/send-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (res.ok) {
+              statusEl.textContent = 'Thank you for registering! We’ll notify you when the members area launches.';
+              form.reset();
+            } else {
+              statusEl.textContent = 'There was an error. Please try again later.';
+            }
+          } catch (err) {
+            statusEl.textContent = 'An unexpected error occurred. Please try again later.';
+          }
+          statusEl.style.display = 'block';
+        });
+      });
+    </script>
+  </body>
+</html>
