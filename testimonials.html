@@ -32,6 +32,8 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="testimonials.html" class="active">Testimonials</a></li>
             <li><a href="store.html">Store</a></li>
+            <!-- Added Videos page to navigation -->
+            <li><a href="videos.html">Videos</a></li>
             <li><a href="contact.html">Book</a></li>
             <li><a href="members.html">Members</a></li>
           </ul>
@@ -41,7 +43,8 @@
     <main>
       <!-- Hero -->
       <!-- Updated hero with premium AI background to set an inspiring tone -->
-      <section class="hero" style="background-image:url('assets/images/new/AI_2.jpeg'); background-size:cover; background-position:center;">
+      <!-- Use the dedicated testimonials hero image so this image is not reused elsewhere on the site -->
+      <section class="hero" style="background-image:url('assets/images/new/AI_Testimonials_Hero.jpeg'); background-size:cover; background-position:center;">
         <div class="content">
           <h1>Testimonials</h1>
           <p>Real stories of transformation, resilience &amp; excellence</p>
@@ -54,17 +57,18 @@
           <h2 class="section-title">Training Highlights</h2>
           <p class="section-subtitle">Experience the intensity and variety of DC Performance Coaching sessions.</p>
           <div class="grid grid-2">
-            <!-- Áine training highlight -->
+            <!-- Áine training highlight: use a unique poster unrelated to her testimonial to avoid duplicate images -->
             <div class="video-wrapper">
-              <video controls poster="assets/images/new/Aine_Gannon_Training_1_Client.jpeg">
+              <video controls poster="assets/images/new/Daragh_McCardle_After_2_Client.jpg">
                 <source src="assets/videos/Aine_Gannon_Training_Vid_Client.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <!-- Connor training & testimonial highlight -->
+            <!-- Second training highlight: use an unused training video with a progress picture as poster -->
             <div class="video-wrapper">
-              <video controls poster="assets/images/new/Connor_Morris_After_1_Client.jpeg">
-                <source src="assets/videos/Connor_Morris_Testimonial_Vid_Client.mp4" type="video/mp4" />
+              <video controls poster="assets/images/new/Client_Progress_Pic_2.jpeg">
+                <source src="assets/videos/DC_Training_Vid_12.mov" type="video/mp4" />
+                <source src="assets/videos/DC_Training_Vid_12.mov" type="video/quicktime" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -76,17 +80,18 @@
           <h2 class="section-title">Behind the Scenes</h2>
           <p class="section-subtitle">Get a feel for our training environment and coaching style with these short clips.</p>
           <div class="grid grid-2">
+            <!-- First behind the scenes clip uses the second sport highlight with a unique progress picture as the poster -->
             <div class="video-wrapper">
-              <video controls poster="assets/images/new/DC_Sport_10.jpg">
-                <source src="assets/videos/DC_Coaching_Vid_5_LONG.MOV" type="video/mp4" />
-                <source src="assets/videos/DC_Coaching_Vid_5_LONG.MOV" type="video/quicktime" />
+              <video controls poster="assets/images/new/Client_Progress_Pic_3.jpeg">
+                <source src="assets/videos/DC_Sport_Highlight_Vid_2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
+            <!-- Second behind the scenes clip uses the final training video with an after image poster -->
             <div class="video-wrapper">
-              <video controls poster="assets/images/new/DC_Sport_11.jpeg">
-                <source src="assets/videos/DC_Coaching_Vid_6.MOV" type="video/mp4" />
-                <source src="assets/videos/DC_Coaching_Vid_6.MOV" type="video/quicktime" />
+              <video controls poster="assets/images/new/Daragh_McCardle_After_3_Client.jpg">
+                <source src="assets/videos/DC_Training_Vid_13.mov" type="video/mp4" />
+                <source src="assets/videos/DC_Training_Vid_13.mov" type="video/quicktime" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -104,7 +109,8 @@
               <h3 style="font-family: var(--font-heading); font-size:1.5rem; color:var(--color-gold); margin-bottom:0.5rem;">Niall</h3>
               <p style="color: var(--color-light); margin-bottom:0.8rem;">Niall overcame his plateau thanks to structured programming and nutritional guidance from DC Performance Coaching.  The results speak for themselves.</p>
               <div class="video-wrapper" style="margin-bottom:0.8rem;">
-                <video controls poster="assets/images/new/DC_Sport_9.jpg">
+                <!-- Remove poster so the first frame of the testimonial video is visible -->
+                <video controls>
                   <source src="assets/videos/Niall_Testimonial_Vid_Client.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -116,7 +122,8 @@
               <h3 style="font-family: var(--font-heading); font-size:1.5rem; color:var(--color-gold); margin-bottom:0.5rem;">Wayne</h3>
               <p style="color: var(--color-light); margin-bottom:0.8rem;">After a serious injury, Wayne regained his confidence and performance with a personalised rehab and strength plan from DC Performance Coaching.</p>
               <div class="video-wrapper" style="margin-bottom:0.8rem;">
-                <video controls poster="assets/images/new/DC_Sport_10.jpg">
+                <!-- Remove poster so the first frame of the testimonial video is visible -->
+                <video controls>
                   <source src="assets/videos/Wayne_Testimonial_Vid_Client.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -131,7 +138,8 @@
                 <img src="assets/images/new/Aine_Gannon_Training_2_Client.jpeg" alt="Áine training" />
               </div>
               <div class="video-wrapper" style="margin-bottom:0.8rem;">
-                <video controls poster="assets/images/new/Aine_Gannon_Training_1_Client.jpeg">
+                <!-- Remove poster so the first frame of the testimonial video is visible -->
+                <video controls>
                   <source src="assets/videos/Aine_Gannon_Testimonial_Vid_Client.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -147,13 +155,21 @@
                 <img src="assets/images/new/Connor_Morris_After_1_Client.jpeg" alt="Connor after training" />
                 <img src="assets/images/new/Connor_Morris_After_2_Client.jpg" alt="Connor after training" />
               </div>
+              <!-- Embed Connor's testimonial video within his card; remove poster so viewers see the first frame -->
+              <div class="video-wrapper" style="margin-bottom:0.8rem;">
+                <video controls>
+                  <source src="assets/videos/Connor_Morris_Testimonial_Vid_Client.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
             <!-- Daragh McCardle -->
             <div class="card">
               <h3 style="font-family: var(--font-heading); font-size:1.5rem; color:var(--color-gold); margin-bottom:0.5rem;">Daragh McCardle</h3>
               <p style="color: var(--color-light); margin-bottom:0.8rem;">Financial analyst &amp; Gaelic footballer.  Dan’s training built Daragh’s explosiveness and tissue resilience, keeping him injury‑free.  With improved nutrition, sleep and speed, he feels stronger, faster and more balanced than ever.</p>
               <div class="gallery-grid" style="margin-bottom:0.8rem;">
-                <img src="assets/images/new/Daragh_McCardle_Before_1_Client.jpg" alt="Daragh before training" />
+                <!-- Focus on after images rather than before pictures for the gallery -->
+                <img src="assets/images/new/Daragh_McCardle_After_1_Client.jpg" alt="Daragh after training" />
                 <img src="assets/images/new/Daragh_McCardle_After_2_Client.jpg" alt="Daragh after training" />
               </div>
             </div>
@@ -162,12 +178,14 @@
               <h3 style="font-family: var(--font-heading); font-size:1.5rem; color:var(--color-gold); margin-bottom:0.5rem;">Patrick O’Connor</h3>
               <p style="color: var(--color-light); margin-bottom:0.8rem;">Former powerlifter turned hypertrophy enthusiast.  Patrick wanted a new training style and found the perfect coach in Dan.  Through education on myo‑reps, muscle splits and rest, he’s built confidence and purpose both in and out of the gym.</p>
               <div class="gallery-grid" style="margin-bottom:0.8rem;">
-                <img src="assets/images/new/Client_Progress_Pic_1.jpeg" alt="Patrick progress" />
-                <img src="assets/images/new/Client_Progress_Pic_2.jpeg" alt="Patrick progress" />
-                <img src="assets/images/new/Client_Progress_Pic_3.jpeg" alt="Patrick progress" />
+                <!-- Replace progress pictures with high quality training and sport shots to keep the gallery positive -->
+                <img src="assets/images/new/DC_Bodybuilding_4.jpeg" alt="Bodybuilding training" />
+                <img src="assets/images/new/DC_Sport_2.jpg" alt="Sport training" />
+                <img src="assets/images/new/DC_Training_1.jpeg" alt="Gym training" />
               </div>
               <div class="video-wrapper" style="margin-bottom:0.8rem;">
-                <video controls poster="assets/images/new/Client_Progress_Pic_1.jpeg">
+                <!-- Remove poster so Patrick's testimonial video shows the first frame by default -->
+                <video controls>
                   <source src="assets/videos/Patrick_O_Connor_Testimonial_Vid_Client.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -193,57 +211,44 @@
           <h2 class="section-title">Performance Gallery</h2>
           <p class="section-subtitle">A glimpse into our training, sport and physique journey. Every image from our archive is showcased here.</p>
           <div class="gallery-grid">
-            <!-- Show every non‑AI image from the updated collection at least once -->
-            <img src="assets/images/new/Aine_Gannon_Training_1_Client.jpeg" alt="Aine Gannon Training 1 Client" />
-            <img src="assets/images/new/Aine_Gannon_Training_2_Client.jpeg" alt="Aine Gannon Training 2 Client" />
-            <img src="assets/images/new/Client_Progress_Pic_1.jpeg" alt="Client Progress Pic 1" />
-            <img src="assets/images/new/Client_Progress_Pic_2.jpeg" alt="Client Progress Pic 2" />
-            <img src="assets/images/new/Client_Progress_Pic_3.jpeg" alt="Client Progress Pic 3" />
-            <img src="assets/images/new/Client_Progress_Pic_4.jpeg" alt="Client Progress Pic 4" />
-            <img src="assets/images/new/Connor_Morris_After_1_Client.jpeg" alt="Connor Morris After 1 Client" />
-            <img src="assets/images/new/Connor_Morris_After_1_Client.jpg" alt="Connor Morris After 1 Client" />
-            <img src="assets/images/new/Connor_Morris_After_2_Client.jpg" alt="Connor Morris After 2 Client" />
-            <img src="assets/images/new/DC_Bodybuilding_1.jpg" alt="DC Bodybuilding 1" />
-            <img src="assets/images/new/DC_Bodybuilding_2.jpg" alt="DC Bodybuilding 2" />
-            <img src="assets/images/new/DC_Bodybuilding_3.jpeg" alt="DC Bodybuilding 3" />
-            <img src="assets/images/new/DC_Bodybuilding_4.jpeg" alt="DC Bodybuilding 4" />
-            <img src="assets/images/new/DC_Bodybuilding_5.jpeg" alt="DC Bodybuilding 5" />
-            <img src="assets/images/new/DC_Bodybuilding_6.jpeg" alt="DC Bodybuilding 6" />
-            <img src="assets/images/new/DC_Bodybuilding_7.jpeg" alt="DC Bodybuilding 7" />
-            <img src="assets/images/new/DC_Bodybuilding_8.jpeg" alt="DC Bodybuilding 8" />
-            <img src="assets/images/new/DC_Bodybuilding_9.jpg" alt="DC Bodybuilding 9" />
-            <img src="assets/images/new/DC_Sport_1.jpg" alt="DC Sport 1" />
-            <img src="assets/images/new/DC_Sport_10.jpg" alt="DC Sport 10" />
-            <img src="assets/images/new/DC_Sport_11.jpeg" alt="DC Sport 11" />
-            <img src="assets/images/new/DC_Sport_12.jpeg" alt="DC Sport 12" />
-            <img src="assets/images/new/DC_Sport_13.jpeg" alt="DC Sport 13" />
-            <img src="assets/images/new/DC_Sport_14.jpeg" alt="DC Sport 14" />
-            <img src="assets/images/new/DC_Sport_15.jpeg" alt="DC Sport 15" />
-            <img src="assets/images/new/DC_Sport_16.JPG" alt="DC Sport 16" />
-            <img src="assets/images/new/DC_Sport_17.JPG" alt="DC Sport 17" />
-            <img src="assets/images/new/DC_Sport_18.JPG" alt="DC Sport 18" />
-            <img src="assets/images/new/DC_Sport_2.jpg" alt="DC Sport 2" />
-            <img src="assets/images/new/DC_Sport_3.jpeg" alt="DC Sport 3" />
-            <img src="assets/images/new/DC_Sport_4.jpg" alt="DC Sport 4" />
-            <img src="assets/images/new/DC_Sport_5.jpg" alt="DC Sport 5" />
-            <img src="assets/images/new/DC_Sport_6.jpg" alt="DC Sport 6" />
-            <img src="assets/images/new/DC_Sport_7.jpg" alt="DC Sport 7" />
-            <img src="assets/images/new/DC_Sport_8.jpg" alt="DC Sport 8" />
-            <img src="assets/images/new/DC_Sport_9.jpg" alt="DC Sport 9" />
-            <img src="assets/images/new/DC_Training_1.jpeg" alt="DC Training 1" />
-            <img src="assets/images/new/DC_Training_2.jpeg" alt="DC Training 2" />
-            <img src="assets/images/new/DC_Training_3.jpeg" alt="DC Training 3" />
-            <img src="assets/images/new/DC_Training_4.jpeg" alt="DC Training 4" />
-            <img src="assets/images/new/Daragh_McCardle_After_1_Client.jpg" alt="Daragh McCardle After 1 Client" />
-            <img src="assets/images/new/Daragh_McCardle_After_2_Client.jpg" alt="Daragh McCardle After 2 Client" />
-            <img src="assets/images/new/Daragh_McCardle_After_3_Client.jpg" alt="Daragh McCardle After 3 Client" />
-            <img src="assets/images/new/Daragh_McCardle_Before_1_Client.jpg" alt="Daragh McCardle Before 1 Client" />
-            <img src="assets/images/new/Daragh_McCardle_Before_2_Client.jpg" alt="Daragh McCardle Before 2 Client" />
-            <img src="assets/images/new/Daragh_McCardle_Before_3_Client.jpg" alt="Daragh McCardle Before 3 Client" />
-            <img src="assets/images/new/Joshua_Payawall_After_1_Client.jpg" alt="Joshua Payawall After 1 Client" />
-            <img src="assets/images/new/Joshua_Payawall_Before_1_Client.jpeg" alt="Joshua Payawall Before 1 Client" />
-            <img src="assets/images/new/Joshua_Payawall_Before_2_Client.jpeg" alt="Joshua Payawall Before 2 Client" />
-            <img src="assets/images/new/Logo.jpg" alt="Logo" />
+            <!-- Curated gallery: showcase dynamic training, bodybuilding, sport and client transformation images without any progress or before photos -->
+            <img src="assets/images/new/Aine_Gannon_Training_1_Client.jpeg" alt="Aine training" />
+            <img src="assets/images/new/Aine_Gannon_Training_2_Client.jpeg" alt="Aine training" />
+            <img src="assets/images/new/Connor_Morris_After_1_Client.jpeg" alt="Connor after training" />
+            <img src="assets/images/new/Connor_Morris_After_2_Client.jpg" alt="Connor after training" />
+            <img src="assets/images/new/DC_Bodybuilding_1.jpg" alt="Bodybuilding pose" />
+            <img src="assets/images/new/DC_Bodybuilding_2.jpg" alt="Bodybuilding training" />
+            <img src="assets/images/new/DC_Bodybuilding_3.jpeg" alt="Bodybuilding workout" />
+            <img src="assets/images/new/DC_Bodybuilding_4.jpeg" alt="Bodybuilding gym" />
+            <img src="assets/images/new/DC_Bodybuilding_5.jpeg" alt="Bodybuilding muscles" />
+            <img src="assets/images/new/DC_Bodybuilding_6.jpeg" alt="Bodybuilding fitness" />
+            <img src="assets/images/new/DC_Bodybuilding_7.jpeg" alt="Bodybuilding strength" />
+            <img src="assets/images/new/DC_Bodybuilding_8.jpeg" alt="Bodybuilding routine" />
+            <img src="assets/images/new/DC_Bodybuilding_9.jpg" alt="Bodybuilding progress" />
+            <img src="assets/images/new/DC_Sport_1.jpg" alt="Sport action" />
+            <img src="assets/images/new/DC_Sport_2.jpg" alt="Sport competition" />
+            <img src="assets/images/new/DC_Sport_3.jpeg" alt="Sport performance" />
+            <img src="assets/images/new/DC_Sport_6.jpg" alt="Sport training" />
+            <img src="assets/images/new/DC_Sport_7.jpg" alt="Sport technique" />
+            <img src="assets/images/new/DC_Sport_8.jpg" alt="Sport teamwork" />
+            <img src="assets/images/new/DC_Sport_9.jpg" alt="Sport gameplay" />
+            <img src="assets/images/new/DC_Sport_10.jpg" alt="Sport intensity" />
+            <img src="assets/images/new/DC_Sport_11.jpeg" alt="Sport focus" />
+            <img src="assets/images/new/DC_Sport_12.jpeg" alt="Sport power" />
+            <img src="assets/images/new/DC_Sport_13.jpeg" alt="Sport dedication" />
+            <img src="assets/images/new/DC_Sport_14.jpeg" alt="Sport endurance" />
+            <img src="assets/images/new/DC_Sport_15.jpeg" alt="Sport agility" />
+            <img src="assets/images/new/DC_Sport_16.JPG" alt="Sport passion" />
+            <img src="assets/images/new/DC_Sport_17.JPG" alt="Sport celebration" />
+            <img src="assets/images/new/DC_Sport_18.JPG" alt="Sport landscape" />
+            <img src="assets/images/new/DC_Training_1.jpeg" alt="Gym training" />
+            <img src="assets/images/new/DC_Training_2.jpeg" alt="Gym progress" />
+            <img src="assets/images/new/DC_Training_3.jpeg" alt="Gym determination" />
+            <img src="assets/images/new/DC_Training_4.jpeg" alt="Gym focus" />
+            <img src="assets/images/new/Daragh_McCardle_After_1_Client.jpg" alt="Daragh after training" />
+            <img src="assets/images/new/Daragh_McCardle_After_2_Client.jpg" alt="Daragh after training" />
+            <img src="assets/images/new/Daragh_McCardle_After_3_Client.jpg" alt="Daragh after training" />
+            <img src="assets/images/new/Joshua_Payawall_After_1_Client.jpg" alt="Joshua after training" />
           </div>
         </div>
       </section>
@@ -271,6 +276,7 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="testimonials.html" class="active">Testimonials</a></li>
             <li><a href="store.html">Store</a></li>
+            <li><a href="videos.html">Videos</a></li>
             <li><a href="contact.html">Book</a></li>
             <li><a href="members.html">Members</a></li>
           </ul>

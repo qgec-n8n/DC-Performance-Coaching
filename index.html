@@ -41,6 +41,8 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="store.html">Store</a></li>
+            <!-- Insert link to the Videos page for quick access to our video library -->
+            <li><a href="videos.html">Videos</a></li>
             <li><a href="contact.html">Book</a></li>
             <li><a href="members.html">Members</a></li>
           </ul>
@@ -53,7 +55,7 @@
       <section class="hero">
         <!-- Intro video plays silently in the background.  Autoplay is muted to comply with modern browser rules. -->
         <!-- Intro video now plays with audio; muted attribute removed to allow sound on page load -->
-        <video autoplay loop playsinline poster="assets/images/new/DC_Bodybuilding_1.jpg">
+        <video autoplay loop playsinline>
           <source src="assets/videos/DC_Intro_Vid.mov" type="video/mp4" />
           <source src="assets/videos/DC_Intro_Vid.mov" type="video/quicktime" />
         </video>
@@ -79,7 +81,8 @@
               <a href="about.html" class="btn secondary">Meet Daniel</a>
             </div>
             <div>
-              <img src="assets/images/new/DC_Training_1.jpeg" alt="Daniel Courtney training" style="border-radius:1rem;" />
+              <!-- Swap the generic training image for a unique bodybuilding shot to avoid reuse across the site -->
+              <img src="assets/images/new/DC_Bodybuilding_1.jpg" alt="Daniel Courtney bodybuilding" style="border-radius:1rem;" />
             </div>
           </div>
         </div>
@@ -175,13 +178,15 @@
           <div class="grid grid-2">
             <!-- Highlight two of Daniel's recent blog posts -->
             <div class="card">
-              <img src="assets/images/new/AI_9.jpeg" alt="Carbohydrates blog" style="border-radius:0.5rem; margin-bottom:1rem;" />
+              <!-- Use the correct AI hero image for the carbohydrates blog -->
+              <img src="assets/images/new/AI_Carbohydrate_Blog.jpeg" alt="Carbohydrates: The King of Performance" style="border-radius:0.5rem; margin-bottom:1rem;" />
               <h3 style="font-family: var(--font-heading); font-size:1.5rem; color: var(--color-light); margin-bottom:0.5rem;">Carbohydrates: The King of Performance</h3>
               <p style="color: var(--color-gray); margin-bottom:1rem;">Learn why carbs are your secret weapon for athletic output and how to fuel your training with the right sources.</p>
               <a href="blog_carbohydrates.html" class="btn secondary">Read More</a>
             </div>
             <div class="card">
-              <img src="assets/images/new/AI_11.jpeg" alt="Mindset blog" style="border-radius:0.5rem; margin-bottom:1rem;" />
+              <!-- Use the dedicated mindset blog image -->
+              <img src="assets/images/new/AI_Mindset_Blog.jpeg" alt="Mindset, Stoicism &amp; Performance" style="border-radius:0.5rem; margin-bottom:1rem;" />
               <h3 style="font-family: var(--font-heading); font-size:1.5rem; color: var(--color-light); margin-bottom:0.5rem;">Mindset, Stoicism &amp; Performance</h3>
               <p style="color: var(--color-gray); margin-bottom:1rem;">Discover how practicing Stoicism and cultivating a resilient mindset can transform your training and life.</p>
               <a href="blog_mindset.html" class="btn secondary">Read More</a>
@@ -210,7 +215,8 @@
           <h2 class="section-title">Training Highlights</h2>
           <p class="section-subtitle">Watch DC Performance Coaching in action as we put athletes through their paces.</p>
           <div class="video-wrapper" style="max-width:900px; margin:0 auto;">
-            <video controls poster="assets/images/new/DC_Training_1.jpeg">
+            <!-- Assign a new poster for the training highlight to avoid reusing images -->
+            <video controls poster="assets/images/new/DC_Training_2.jpeg">
               <source src="assets/videos/DC_Training_Vid_1.mov" type="video/mp4" />
               <source src="assets/videos/DC_Training_Vid_1.mov" type="video/quicktime" />
               Your browser does not support the video tag.
@@ -244,6 +250,7 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="testimonials.html">Testimonials</a></li>
             <li><a href="store.html">Store</a></li>
+            <li><a href="videos.html">Videos</a></li>
             <li><a href="contact.html">Book</a></li>
             <li><a href="members.html">Members</a></li>
           </ul>
