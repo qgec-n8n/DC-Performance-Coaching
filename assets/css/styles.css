@@ -46,7 +46,8 @@ body {
   line-height: 1.6;
   font-size: 16px;
 
-  background-image: url('assets/images/new/AI_All_Pages_Background_Image.jpeg');
+  /* Use the global site background for all pages */
+  background-image: url('../images/new/AI_All_Pages_Background_Image.jpeg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
