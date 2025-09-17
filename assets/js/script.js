@@ -77,4 +77,31 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.stats').forEach((statsSection) => {
     statsObserver.observe(statsSection);
   });
+
+  // Home page hero video muting behaviour
+  //
+  // On the home page the intro video should play with sound when it is
+  // visible, but it should automatically mute when the user scrolls it out
+  // of view.  This improves the user experience by preventing background
+  // audio from playing while the visitor reads other sections of the page.
+  const introVideo = document.querySelector('.page-home .hero video');
+  if (introVideo) {
+    // Ensure the video is unmuted initially so that sound plays when the
+    // page loads.  Some browsers may override this depending on their
+    // autoplay policies.
+    introVideo.muted = false;
+    // Create an IntersectionObserver to watch when the hero section is in the
+    // viewport.  When it leaves the viewport, mute the video; when it
+    // re‑enters, unmute.
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          introVideo.muted = false;
+        } else {
+          introVideo.muted = true;
+        }
+      });
+    }, { threshold: 0.4 });
+    videoObserver.observe(introVideo);
+  }
 });

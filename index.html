@@ -54,7 +54,10 @@
       <section class="hero">
         <!-- Intro video plays silently in the background.  Autoplay is muted to comply with modern browser rules. -->
         <!-- Intro video now plays with audio; muted attribute removed to allow sound on page load -->
-        <video autoplay loop playsinline>
+        <!-- Assign an ID so JavaScript can easily reference the intro video.  The
+             muted attribute is omitted intentionally; sound will play when the
+             video is visible and will mute automatically when scrolled out of view. -->
+        <video id="intro-video" autoplay loop playsinline>
           <source src="assets/videos/DC_Intro_Vid.mov" type="video/mp4" />
           <source src="assets/videos/DC_Intro_Vid.mov" type="video/quicktime" />
         </video>
@@ -123,7 +126,9 @@
         <div class="container">
           <h2 class="section-title">Proof in Numbers</h2>
           <p class="section-subtitle">Decades of expertise translated into measurable results</p>
-          <div class="stats">
+          <!-- Wrap the statistics in a floating box with a neon border for better visual emphasis -->
+          <div class="floating-box">
+            <div class="stats">
             <div class="stat">
               <div class="number" data-target="7" data-plus="+">0</div>
               <div class="label">Years coaching</div>
@@ -139,6 +144,7 @@
             <div class="stat">
               <div class="number" data-target="100" data-plus="+">0</div>
               <div class="label">Percent bespoke</div>
+            </div>
             </div>
           </div>
         </div>
@@ -199,7 +205,7 @@
         <div class="container">
           <h2 class="section-title">Sport Highlights</h2>
           <p class="section-subtitle">A glimpse into the energy and athleticism of DC Performance Coaching in motion.</p>
-          <div class="video-wrapper" style="max-width:900px; margin:0 auto;">
+          <div class="video-wrapper">
             <video controls poster="assets/images/new/DC_Sport_1.jpg">
               <source src="assets/videos/DC_Sport_Highlight_Vid_1.mov" type="video/mp4" />
               <source src="assets/videos/DC_Sport_Highlight_Vid_1.mov" type="video/quicktime" />
@@ -213,7 +219,7 @@
         <div class="container">
           <h2 class="section-title">Training Highlights</h2>
           <p class="section-subtitle">Watch DC Performance Coaching in action as we put athletes through their paces.</p>
-          <div class="video-wrapper" style="max-width:900px; margin:0 auto;">
+          <div class="video-wrapper">
             <!-- Assign a new poster for the training highlight to avoid reusing images -->
             <video controls poster="assets/images/new/DC_Training_2.jpeg">
               <source src="assets/videos/DC_Training_Vid_2.mov" type="video/mp4" />
