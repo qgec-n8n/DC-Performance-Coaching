@@ -26,23 +26,66 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="assets/js/cookie-consent.js" defer></script>
     <script src="assets/js/script.js" defer></script>
+    <!-- Custom styles for this article -->
+    <style>
+      .blog-article {
+        font-family: var(--font-body);
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: var(--color-light);
+        margin-top: 1rem;
+      }
+      .blog-article h2 {
+        font-family: var(--font-heading);
+        font-size: 2.2rem;
+        color: var(--color-gold);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+      .blog-article h3 {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        color: var(--color-gold);
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+      }
+      .blog-article p {
+        margin-bottom: 1rem;
+      }
+      .blog-article ul {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+      .blog-article li {
+        margin-bottom: 0.5rem;
+      }
+      .blog-article .highlight {
+        color: var(--color-gold);
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body class="page-blog">
-    <!-- Removed the unused global-bg-overlay element since the dark overlay is handled via CSS on body -->
     <!-- Cookie banner -->
     <div id="cookie-banner" class="cookie-banner">
       <p>
-        We use cookies to improve your browsing experience and analyse website traffic.  By clicking
-        “Accept”, you consent to our use of cookies.  For more details, please read our
+        We use cookies to improve your browsing experience and analyse website
+        traffic. By clicking “Accept”, you consent to our use of cookies. For
+        more details, please read our
         <a href="privacy.html">Privacy Policy</a>.
       </p>
       <button id="cookie-accept-btn" class="btn">Accept</button>
     </div>
-
     <!-- Header -->
     <header>
       <div class="header-inner container">
-        <a href="index.html" class="logo"><img src="assets/images/new/Logo.jpg" alt="DC Performance Coaching logo" /></a>
+        <a href="index.html" class="logo"
+          ><img
+            src="assets/images/new/Logo.jpg"
+            alt="DC Performance Coaching logo"
+        /></a>
         <nav>
           <div class="nav-toggle" aria-label="Open navigation">
             <span></span><span></span><span></span>
@@ -61,47 +104,101 @@
         </nav>
       </div>
     </header>
-
     <main>
       <!-- Blog post hero -->
-      <!-- Use the dedicated AI image for the critical mistake article -->
-      <section class="hero blog-post-hero" style="background-image: url('assets/images/new/AI_Critical_Mistake_Load_Tension_Blog.jpeg'); background-size:cover; background-position:center;">
+      <section
+        class="hero blog-post-hero"
+        style="background-image: url('assets/images/new/AI_Critical_Mistake_Load_Tension_Blog.jpeg'); background-size: cover; background-position: center;"
+      >
         <div class="content">
           <h1>The Critical Mistake: Load vs. Tension</h1>
-          <p>Explore why chasing weight on the bar is less important than maximising muscle tension for true gains.</p>
+          <p>
+            Explore why chasing weight on the bar is less important than
+            maximising muscle tension for true gains.
+          </p>
         </div>
       </section>
       <section class="section reveal">
         <div class="container">
-          <!-- Removed embedded training video to keep the blog article focused on written content -->
           <article class="blog-article">
-<p><strong>The Critical Mistake: Load on the Bar vs. Tension in the Muscle</strong></p>
-<p>One of the most common mistakes I see — from beginners all the way to elite athletes — is not distinguishing between the load on the bar and the tension in the muscle.</p>
-<p>Too often, people assume that a heavier weight automatically means more tension on the muscle. But the truth is, intramuscular tension — the tension inside the muscle itself — is the primary driver of muscle growth.</p>
-<p>Think of it like this: your muscles have receptors that measure tension. The more tension those receptors detect, the greater the downstream signal for muscle growth. Simple.</p>
-<p>Scenario A: Athlete A has poor technique and loads 100 kg on the hack squat. Scenario B: Athlete B has phenomenal technique and rep integrity, using just 80 kg.</p>
-<p>On paper, you might think Athlete A is going to get more tension and more growth. But if Athlete B has:</p>
-<p>Greater range of motion</p>
-<p>Upright torso</p>
-<p>Full depth</p>
-<p>Controlled eccentric</p>
-<p>Pause in the amortisation phase</p>
-<p>...then they’re putting their quads in a disadvantageous mechanical position where the quads are the limiting factor. That means more intramuscular tension — and more growth — despite the lighter load.</p>
-<p>Load on the bar and intramuscular tension are independent variables.</p>
-<p>Yes, they’re correlated — but more weight does not always mean more muscle tension, and it certainly doesn’t guarantee more growth. In fact, with poor technique, it’s often the opposite.</p>
-<p>Look at an elite-level natural bodybuilder coached by a sports scientist. You might be shocked at how “light” their weights are — but every rep is precise. The target muscle is under constant, high-quality tension, and the joints are protected from excessive shear.</p>
-<p><strong>If your goal is muscle growth:</strong><strong>Chase tension, not just load on the bar — and not just force</strong><strong> </strong></p>
+            <h2>Load vs. Tension</h2>
+            <p>
+              One of the most common mistakes I see — from beginners all the way
+              to elite athletes — is not distinguishing between the load on the
+              bar and the tension in the muscle.
+            </p>
+            <p>
+              Too often, people assume that a heavier weight automatically means
+              more tension on the muscle. But the truth is,
+              <span class="highlight">intramuscular tension</span> — the tension
+              inside the muscle itself — is the primary driver of muscle
+              growth.
+            </p>
+            <p>
+              Think of it like this: your muscles have receptors that measure
+              tension. The more tension those receptors detect, the greater the
+              downstream signal for muscle growth. Simple.
+            </p>
+            <h2>Scenario Comparison</h2>
+            <p>
+              Scenario&nbsp;A: Athlete A has poor technique and loads
+              100&nbsp;kg on the hack squat.<br />
+              Scenario&nbsp;B: Athlete B has phenomenal technique and rep
+              integrity, using just 80&nbsp;kg.
+            </p>
+            <p>
+              On paper, you might think Athlete A is going to get more tension
+              and more growth. But if Athlete B has the following qualities, the
+              lighter load actually produces <strong>more growth</strong>:
+            </p>
+            <ul>
+              <li>Greater range of motion</li>
+              <li>Upright torso</li>
+              <li>Full depth</li>
+              <li>Controlled eccentric</li>
+              <li>Pause in the amortisation phase</li>
+            </ul>
+            <p>
+              By putting their quads in a disadvantageous mechanical position
+              where the quads are the limiting factor, Athlete B achieves more
+              intramuscular tension — and more growth — despite the lighter
+              load.
+            </p>
+            <h2>Chase Tension, Not Just Load</h2>
+            <p>
+              Load on the bar and intramuscular tension are independent
+              variables. Yes, they’re correlated — but more weight does not
+              always mean more muscle tension, and it certainly doesn’t
+              guarantee more growth. In fact, with poor technique, it’s often
+              the opposite.
+            </p>
+            <p>
+              Look at an elite‑level natural bodybuilder coached by a sports
+              scientist. You might be shocked at how “light” their weights are —
+              but every rep is precise. The target muscle is under constant,
+              high‑quality tension, and the joints are protected from excessive
+              shear.
+            </p>
+            <p>
+              <strong>If your goal is muscle growth:</strong>
+              <span class="highlight"
+                >Chase tension, not just load on the bar — and not just
+                force</span
+              >.
+            </p>
           </article>
         </div>
       </section>
-</main>
-
+    </main>
     <!-- Footer -->
     <footer>
       <div class="container footer-inner">
         <div class="footer-col">
           <h4>DC Performance Coaching</h4>
-          <p>Empowering you to move, perform and live better through science‑based coaching and personalised support.</p>
+          <p>
+            Empowering you to move, perform and live better through science‑based
+            coaching and personalised support.
+          </p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -119,18 +216,33 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li>Email: <a href="mailto:info@dcperformancecoaching.com">info@dcperformancecoaching.com</a></li>
+            <li>
+              Email:
+              <a href="mailto:info@dcperformancecoaching.com"
+                >info@dcperformancecoaching.com</a
+              >
+            </li>
             <li>Follow us:</li>
           </ul>
           <div class="socials">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="YouTube"
+              ><i class="fab fa-youtube"></i
+            ></a>
           </div>
         </div>
       </div>
-      <div class="container" style="text-align:center; margin-top:2rem; font-size:0.8rem;">
-        &copy; 2025 DC Performance Coaching. All rights reserved. <a href="privacy.html">Privacy Policy</a>
+      <div
+        class="container"
+        style="text-align: center; margin-top: 2rem; font-size: 0.8rem;"
+      >
+        &copy; 2025 DC Performance Coaching. All rights reserved.
+        <a href="privacy.html">Privacy Policy</a>
       </div>
     </footer>
   </body>
