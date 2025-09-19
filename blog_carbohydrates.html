@@ -34,23 +34,30 @@
         line-height: 1.8;
         font-size: 1.1rem;
         color: var(--color-light);
-        margin-top: 1rem;
+        margin: 1rem auto;
+        /* Constrain width on large screens so the text is centred with breathing room */
+        max-width: 850px;
       }
       .blog-article h2 {
         font-family: var(--font-heading);
-        font-size: 2.2rem;
+        font-size: 2.6rem;
         color: var(--color-gold);
         margin-top: 2rem;
         margin-bottom: 1rem;
         text-transform: uppercase;
+        letter-spacing: 0.05em;
+        /* Add a subtle accent line to distinguish major headings */
+        border-left: 6px solid var(--color-gold);
+        padding-left: 0.75rem;
       }
       .blog-article h3 {
         font-family: var(--font-heading);
-        font-size: 1.6rem;
-        color: var(--color-gold);
+        font-size: 1.5rem;
+        color: var(--color-gray);
         margin-top: 1.5rem;
         margin-bottom: 0.75rem;
         text-transform: uppercase;
+        letter-spacing: 0.04em;
       }
       .blog-article p {
         margin-bottom: 1rem;
