@@ -105,6 +105,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /*
+    Adjust the height of images that sit opposite blocks of text.  On pages
+    where a 2‑column grid displays text in one column and an image in the
+    other (for example the About preview on the home page), we want the
+    image to match the height of the adjacent text so that both columns
+    align neatly regardless of viewport size or text length.  To preserve
+    the image’s aspect ratio, we compute the appropriate width based on
+    the image’s natural dimensions.  This function runs on initial load
+    and whenever the window is resized.
+
+    It looks for `.grid-2` containers with exactly two children and
+    identifies which child contains an `<img>` element.  The other child
+    is assumed to hold text.  The image is then resized to match the
+    height of the text block while maintaining its original aspect ratio.
+  */
+  function adjustAdjacentImageHeights() {
+    document.querySelectorAll('.grid.grid-2').forEach((grid) => {
+      const children = Array.from(grid.children);
+      if (children.length !== 2) return;
+      let textEl = null;
+      let imgEl = null;
+      children.forEach((child) => {
+        const img = child.querySelector('img');
+        if (img) {
+          imgEl = img;
+        } else {
+          textEl = child;
+        }
+      });
+      if (imgEl && textEl) {
+        // Reset dimensions before measuring to avoid compounding sizes
+        imgEl.style.height = '';
+        imgEl.style.width = '';
+        // Wait until images have loaded to access natural dimensions
+        if (!imgEl.complete) {
+          imgEl.addEventListener('load', () => adjustAdjacentImageHeights(), { once: true });
+          return;
+        }
+        const textHeight = textEl.offsetHeight;
+        // Guard against zero height to avoid dividing by zero
+        if (textHeight > 0) {
+          const aspectRatio = imgEl.naturalWidth / imgEl.naturalHeight;
+          imgEl.style.height = textHeight + 'px';
+          imgEl.style.width = textHeight * aspectRatio + 'px';
+          imgEl.style.objectFit = 'cover';
+        }
+      }
+    });
+  }
+  // Run once on load and on resize
+  adjustAdjacentImageHeights();
+  window.addEventListener('resize', adjustAdjacentImageHeights);
+
   // Reveal elements when they enter the viewport
   const observerOptions = {
     threshold: 0.15,

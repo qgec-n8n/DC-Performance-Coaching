@@ -97,7 +97,10 @@ potential with bespoke programming, online training and one‑to‑one coaching 
                  warriors and elite performers across Ireland and beyond.  Whether you're chasing
                  a new personal best or rebuilding after injury, our personalised approach gets 
                  results.</p>
-              <a href="about.html" class="btn secondary">Meet Daniel</a>
+              <!-- Add margin-top to the Meet Daniel button so there is a line space between
+                   the paragraphs and the button.  This ensures the button sits below
+                   the text with clear separation. -->
+              <a href="about.html" class="btn secondary" style="margin-top: 1rem; display: inline-block;">Meet Daniel</a>
             </div>
             <div>
               <!-- Swap the generic training image for a unique bodybuilding shot to avoid reuse across the site -->
@@ -220,9 +223,13 @@ potential with bespoke programming, online training and one‑to‑one coaching 
             <!-- Highlight two of Daniel's recent blog posts -->
             <div class="card">
               <!-- Use the correct AI hero image for the carbohydrates blog -->
+              <!-- Ensure blog preview images display fully without cropping, scale
+                   proportionally to the viewport and remain smaller by capping
+                   their height at half the viewport height.  The object-fit
+                   property preserves the entire image. -->
               <img src="assets/images/new/AI_Carbohydrate_Blog.jpeg" 
-                alt="Carbohydrates: The King of Performance" style="border-radius:0.5rem; 
-                margin-bottom:1rem;" />
+                alt="Carbohydrates: The King of Performance"
+                style="border-radius:0.5rem; margin-bottom:1rem; width:100%; height:auto; max-height:50vh; object-fit:contain;" />
               <h3 style="font-family: var(--font-heading); font-size:1.5rem;
                 color: var(--color-light); margin-bottom:0.5rem;">Carbohydrates: The King of 
                 Performance</h3>
@@ -234,9 +241,10 @@ potential with bespoke programming, online training and one‑to‑one coaching 
             </div>
             <div class="card">
               <!-- Use the dedicated mindset blog image -->
+              <!-- Apply the same responsive scaling to the second blog preview image -->
               <img src="assets/images/new/AI_Mindset_Blog.jpeg" 
-                alt="Mindset, Stoicism &amp; Performance" style="border-radius:0.5rem; margin-
-                bottom:1rem;" />
+                alt="Mindset, Stoicism &amp; Performance"
+                style="border-radius:0.5rem; margin-bottom:1rem; width:100%; height:auto; max-height:50vh; object-fit:contain;" />
               <h3 style="font-family: var(--font-heading); font-size:1.5rem;
                 color: var(--color-light); margin-bottom:0.5rem;">Mindset, Stoicism &amp; 
                 Performance</h3>
