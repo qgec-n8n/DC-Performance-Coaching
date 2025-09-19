@@ -147,18 +147,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Guard against zero height to avoid dividing by zero
         if (textHeight > 0) {
           /*
-            Match the image height to the height of the text block.  We set
-            height directly and leave the width unset (auto) so the browser
-            scales the width proportionally based on the image’s intrinsic
-            aspect ratio.  This prevents overflow when the computed width
-            would otherwise exceed the column’s available space.  Using
-            object-fit: cover crops the sides if necessary to fill the
-            available width while preserving the aspect ratio.
+            Make the image height roughly proportional to the height of the
+            adjacent text.  Instead of matching the exact height, we use a
+            multiplier (e.g. 0.95) so the image height is close but not
+            identical.  Setting width to auto lets the browser maintain
+            the aspect ratio.  objectFit: 'contain' ensures the entire
+            image remains visible without cropping.
           */
-          imgEl.style.height = textHeight + 'px';
+          const newHeight = textHeight * 0.95;
+          imgEl.style.height = newHeight + 'px';
           imgEl.style.width = 'auto';
           imgEl.style.maxWidth = '100%';
-          imgEl.style.objectFit = 'cover';
+          imgEl.style.objectFit = 'contain';
         }
       }
     });
