@@ -31,54 +31,34 @@ document.addEventListener('DOMContentLoaded', () => {
   headerIndicator.textContent = 'Menu';
   document.body.appendChild(headerIndicator);
 
-  // Hide/show header on scroll.  This remains unchanged from the
-  // original implementation, but we also toggle the indicator based on
-  // the header's visibility.
-  let lastScrollY = window.pageYOffset;
-  window.addEventListener('scroll', () => {
-    const currentY = window.pageYOffset;
-    if (currentY > lastScrollY && currentY > 100) {
-      header.classList.add('hidden');
-    } else {
-      header.classList.remove('hidden');
-    }
-    lastScrollY = currentY;
-    // Show or hide the indicator depending on header state
-    if (header.classList.contains('hidden')) {
-      headerIndicator.classList.add('active');
-    } else {
-      headerIndicator.classList.remove('active');
-    }
-  });
-
-  // After a delay, hide the header and show the indicator.  A delay of
-  // 4000ms (~4 seconds) gives users time to see the navigation when
-  // they first arrive.
-  setTimeout(() => {
+  // Helper functions to show and hide the header/indicator.  When the page loads
+  // the header is visible; after two seconds it disappears and the indicator appears.
+  const showHeader = () => {
+    header.classList.remove('hidden');
+    headerIndicator.classList.remove('active');
+  };
+  const hideHeader = () => {
     header.classList.add('hidden');
     headerIndicator.classList.add('active');
-  }, 4000);
+  };
+  // Autohide the header after 2 seconds on initial page load
+  setTimeout(() => {
+    hideHeader();
+  }, 2000);
+  // Show the header when hovering over the indicator or the header itself
+  headerIndicator.addEventListener('mouseenter', showHeader);
+  header.addEventListener('mouseenter', showHeader);
+  // Hide the header again when the mouse leaves the header area
+  header.addEventListener('mouseleave', hideHeader);
 
-  // Reveal the header when hovering over the indicator bar
-  headerIndicator.addEventListener('mouseenter', () => {
-    header.classList.remove('hidden');
-    headerIndicator.classList.remove('active');
-  });
-
-  // Also reveal the header when hovering over the header itself.  This
-  // allows the user to move the mouse directly to the top of the page.
-  header.addEventListener('mouseenter', () => {
-    header.classList.remove('hidden');
-    headerIndicator.classList.remove('active');
-  });
-
-  // Optionally collapse the header again when the mouse leaves the
-  // header if the user has scrolled down.  This prevents flicker
-  // at the very top of the page.
-  header.addEventListener('mouseleave', () => {
-    if (window.pageYOffset > 100) {
-      header.classList.add('hidden');
-      headerIndicator.classList.add('active');
+  // Reposition section headings into their floating boxes.  This moves the
+  // preceding section title inside the `.floating-box` so that titles like
+  // "Proof in Numbers" and "Experience by the Numbers" appear inside
+  // the box along with the counters.
+  document.querySelectorAll('.floating-box').forEach((box) => {
+    const prev = box.previousElementSibling;
+    if (prev && prev.classList.contains('section-title')) {
+      box.insertBefore(prev, box.firstChild);
     }
   });
 

@@ -463,9 +463,14 @@ nav a.active {
 }
 
 .blog-education-videos video {
+  /* Let education videos scale proportionally within their parent.
+     Remove the fixed max-width so that videos can expand up to the full
+     width of their container but never exceed 80% of the viewport
+     height.  This mirrors the sizing behaviour of other videos on the
+     site and keeps the entire clip visible within the window. */
   width: 100%;
-  max-width: 400px; /* reduced from 500px to prevent overflow */
   height: auto;
+  max-height: 80vh;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
