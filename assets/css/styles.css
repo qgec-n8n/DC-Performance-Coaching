@@ -391,17 +391,6 @@ nav a.active {
   object-fit: cover;
 }
 
-/*
-  Some news images need to display their full aspect ratio without being
-  cropped.  Adding a `.no-crop` class to specific <img> elements allows
-  us to override the default `object-fit: cover` behaviour and let the
-  image scale naturally.  Images with this class will maintain their
-  intrinsic aspect ratio and expand the card’s height as needed.
-*/
-.news-card img.no-crop {
-  height: auto;
-  object-fit: contain;
-}
 
 .news-card .news-content {
   padding: 1rem;
