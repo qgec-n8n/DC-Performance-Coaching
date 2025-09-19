@@ -163,8 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  // Run once on load and on resize
-  adjustAdjacentImageHeights();
+  // Run once when the window has fully loaded (ensuring fonts and images
+  // have rendered) and on resize.  Using the load event avoids timing
+  // issues where the text height may be shorter on initial DOMContentLoaded.
+  window.addEventListener('load', adjustAdjacentImageHeights);
   window.addEventListener('resize', adjustAdjacentImageHeights);
 
   // Reveal elements when they enter the viewport
