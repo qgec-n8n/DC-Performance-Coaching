@@ -1014,3 +1014,25 @@ p + p {
 .gallery-lightbox-close:hover {
   background-color: var(--color-gold-dark);
 }
+
+/* [Image height fix for two-column grids]
+ *
+ * The global `img` rule earlier in this file sets images to scale only
+ * according to their width (`height: auto`).  When an image and a block
+ * of text are placed side‑by‑side inside a two‑column grid (the `.grid-2`
+ * class), this default behaviour causes the image to shrink while the
+ * adjacent text grows taller as lines wrap on smaller screens.  To ensure
+ * that the image height increases and decreases in tandem with the text,
+ * we stretch the grid items to share the same row height and then force
+ * any direct child `<img>` elements within a `.grid.grid-2` container to
+ * fill their allocated cell.  The `object-fit: cover` property maintains
+ * the image’s aspect ratio while allowing the height to adjust.
+ */
+.grid.grid-2 {
+  align-items: stretch;
+}
+.grid.grid-2 > * > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
