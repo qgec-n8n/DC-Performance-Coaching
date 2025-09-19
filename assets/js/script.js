@@ -1,13 +1,17 @@
 /*
-  DC Performance Coaching – Client‑side JavaScript
+  Modified client-side JavaScript for DC Performance Coaching
 
-  This script powers small interactive behaviours throughout the
-  website.  It handles the responsive navigation toggle, hides the
-  header on downward scrolls and shows it on upward scrolls, reveals
-  content panels when they enter the viewport and animates the
-  statistics counters on the home page.  The code does not depend on
-  any external libraries and will gracefully degrade if JavaScript is
-  disabled.
+  This file extends the existing interactive behaviours with a timed hide
+  of the header and a custom hover indicator.  On page load the header
+  (which contains the logo and navigation links) remains visible for a few
+  seconds and then slides up out of view.  A small golden bar appears at
+  the very top of the page to inform visitors that they can hover to
+  reveal the navigation again.  Moving the mouse over either the bar
+  itself or the header brings the navigation back into view.  We also
+  inject some additional CSS rules to add spacing between paragraphs and
+  constrain the size of education videos on the blog page.  This script
+  retains all original functionality including scroll‑based header
+  behaviour, reveal animations, counter animations and video muting.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,12 +19,75 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('nav ul');
 
-  // Mobile navigation toggle
+  // Create and append a style tag for global overrides.  This sets
+  // paragraph spacing, constrains blog video widths and defines the
+  // appearance of the header indicator bar.  Using injected CSS avoids
+  // modifying the core stylesheet while ensuring our changes apply
+  // consistently across every page.
+  const globalStyle = document.createElement('style');
+  globalStyle.textContent = `
+    /* Add bottom margin to paragraphs so each paragraph is separated by a line break */
+    p { margin-bottom: 1rem; }
+
+    /* Reduce the maximum width of videos in the blog education section to
+       prevent them from overflowing smaller screens.  They will scale
+       responsively down to this width. */
+    .blog-education-videos video {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    /* Style for the header indicator bar.  It sits fixed at the very
+       top of the viewport and becomes visible only when the header is
+       hidden.  The bar uses the brand gold colour with a slight
+       transparency and contains a downward arrow to hint at hover
+       functionality. */
+    #header-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1.5rem;
+      background: rgba(245, 192, 0, 0.9);
+      color: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      z-index: 1001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      cursor: default;
+    }
+    #header-indicator::after {
+      content: ' \25BC'; /* downwards black arrowhead */
+      margin-left: 0.4rem;
+    }
+    #header-indicator.show {
+      opacity: 1;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+  `;
+  document.head.appendChild(globalStyle);
+
+  // Create the indicator element and append it to the body.  The text
+  // invites the user to hover over the bar to reveal the navigation.
+  const headerIndicator = document.createElement('div');
+  headerIndicator.id = 'header-indicator';
+  headerIndicator.textContent = 'Hover here to show menu';
+  document.body.appendChild(headerIndicator);
+
+  // Mobile navigation toggle remains unchanged.
   navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('open');
   });
 
-  // Hide/show header on scroll
+  // Keep track of the previous scroll position for header hide/show on scroll.
   let lastScrollY = window.pageYOffset;
   window.addEventListener('scroll', () => {
     const currentY = window.pageYOffset;
@@ -30,9 +97,53 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.remove('hidden');
     }
     lastScrollY = currentY;
+    // Whenever the header changes visibility due to scrolling, toggle
+    // the indicator accordingly.  When the header is hidden show the
+    // indicator; otherwise hide it.
+    if (header.classList.contains('hidden')) {
+      headerIndicator.classList.add('show');
+    } else {
+      headerIndicator.classList.remove('show');
+    }
   });
 
-  // Reveal elements when they enter the viewport
+  // Function to hide the header and show the indicator.  This is used
+  // after a delay on page load and when the header needs to collapse
+  // again.
+  const hideHeader = () => {
+    header.classList.add('hidden');
+    headerIndicator.classList.add('show');
+  };
+
+  // Function to show the header and hide the indicator.  Triggered on
+  // mouse hover over the indicator or the header itself.
+  const showHeader = () => {
+    header.classList.remove('hidden');
+    headerIndicator.classList.remove('show');
+  };
+
+  // After a handful of seconds on page load, hide the header and show
+  // the indicator.  Use a timeout of 4000ms (~4 seconds) to give
+  // visitors time to read the navigation before it retracts.
+  setTimeout(hideHeader, 4000);
+
+  // Reveal the header when the user hovers over either the indicator
+  // bar or the header itself.  This makes the navigation accessible
+  // without scrolling back to the top.
+  headerIndicator.addEventListener('mouseenter', showHeader);
+  header.addEventListener('mouseenter', showHeader);
+
+  // Optionally collapse the header again when the mouse leaves the
+  // header, but only if the user has scrolled down.  If the page is at
+  // the top, keep the header visible to avoid flicker.
+  header.addEventListener('mouseleave', () => {
+    if (window.pageYOffset > 100) {
+      hideHeader();
+    }
+  });
+
+  // Reveal elements when they enter the viewport.  Unchanged from
+  // original implementation.
   const observerOptions = {
     threshold: 0.15,
   };
@@ -49,7 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  // Animate number counters
+  // Animate number counters as they scroll into view.  Unchanged from
+  // original implementation.
   const statCounters = document.querySelectorAll('.stat .number');
   const runCounter = (el) => {
     const target = parseInt(el.getAttribute('data-target'), 10);
@@ -78,21 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
     statsObserver.observe(statsSection);
   });
 
-  // Home page hero video muting behaviour
-  //
-  // On the home page the intro video should play with sound when it is
-  // visible, but it should automatically mute when the user scrolls it out
-  // of view.  This improves the user experience by preventing background
-  // audio from playing while the visitor reads other sections of the page.
+  // Home page hero video muting behaviour.  Unchanged.
   const introVideo = document.querySelector('.page-home .hero video');
   if (introVideo) {
-    // Ensure the video is unmuted initially so that sound plays when the
-    // page loads.  Some browsers may override this depending on their
-    // autoplay policies.
     introVideo.muted = false;
-    // Create an IntersectionObserver to watch when the hero section is in the
-    // viewport.  When it leaves the viewport, mute the video; when it
-    // re‑enters, unmute.
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
