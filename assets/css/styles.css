@@ -1,12 +1,28 @@
 /*
-  DC Performance Coaching – Core Stylesheet
+      DC Performance Coaching – Core Stylesheet (modified)
 
-  This file defines the colour palette, typography and base layout
-  primitives used across the DC Performance Coaching website.  The
-  overall aesthetic takes cues from high‑end athletic brands like
-  HYROX and Nike while aligning with the existing DC logo: dark
-  backgrounds contrasted by vibrant gold accents, crisp sans‑serif
-  typography and subtle glassmorphism panels to highlight content.
+      This file is copied verbatim from the original repository and then
+      extended with a handful of small tweaks to satisfy new design
+      requirements.  The original aesthetic remains untouched: dark
+      backgrounds, vibrant gold accents and clean typography.  Only the
+      following changes have been introduced:
+
+      1. A global paragraph spacing rule to insert a line of space between
+         successive paragraphs.  This uses the selector `p + p` to avoid
+         overriding existing margins on standalone paragraphs but ensures
+         that when multiple paragraphs appear together they are separated.
+      2. A reduced maximum width for videos in the education section of
+         the blog page.  This prevents the videos from overflowing the
+         viewport on large screens while still allowing them to scale
+         responsively on smaller devices.
+      3. Definitions for a new `#header-indicator` element that
+         accompanies the auto‑hiding navigation bar.  The indicator is a
+         slim gold bar with a downward arrow that appears when the
+         header is hidden.  It tells users that the menu can be revealed
+         by hovering at the top of the page.
+
+      All other styles are untouched from the original so that existing
+      functionality and visual appearance remain identical.
 */
 
 /* Root variables for colours, fonts and sizing */
@@ -25,7 +41,8 @@
 
   /* Layout */
   --max-width: 1200px;
-  /* Increase the header height so that the full logo sits comfortably inside the navigation bar */
+  /* Increase the header height so that the full logo sits comfortably
+   inside the navigation bar */
   --header-height: 100px;
 }
 
@@ -47,7 +64,10 @@ body {
   line-height: 1.6;
   font-size: 16px;
 
-  /* Apply a dark overlay over the global site background.  The first layer is a semi‑transparent black gradient and the second layer is the photographic background.  This improves text legibility across all pages without altering the original image. */
+  /* Apply a dark overlay over the global site background.  The first layer
+   is a semi‑transparent black gradient and the second layer is the photographic
+   background.  This improves text legibility across all pages without altering the
+   original image. */
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('../images/new/AI_All_Pages_Background_Image.jpeg');
@@ -350,11 +370,11 @@ nav a.active {
 }
 
 /*
-  Floating box used to highlight statistics and experience sections on the home
-  and about pages.  The dark background with a neon gold border makes the
-  enclosed content stand out while still fitting within the overall
-  aesthetic.  A subtle drop shadow gives the impression of the box levitating
-  above the page.
+  Floating box used to highlight statistics and experience sections on the
+  home and about pages.  The dark background with a neon gold border makes
+  the enclosed content stand out while still fitting within the overall
+  aesthetic.  A subtle drop shadow gives the impression of the box
+  levitating above the page.
 */
 .floating-box {
   background-color: rgba(0, 0, 0, 0.8);
@@ -390,7 +410,6 @@ nav a.active {
   height: 160px;
   object-fit: cover;
 }
-
 
 .news-card .news-content {
   padding: 1rem;
@@ -445,15 +464,15 @@ nav a.active {
 
 .blog-education-videos video {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px; /* reduced from 500px to prevent overflow */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /*
-  Ensure transformation gallery photos inside testimonial cards show the full
-  physique instead of cropping the head or legs.  Setting object‑fit to
+  Ensure transformation gallery photos inside testimonial cards show the
+  full physique instead of cropping the head or legs.  Setting object‑fit to
   contain preserves the entire image while maintaining the aspect ratio.
 */
 .page-testimonials .card .gallery-grid img {
@@ -656,21 +675,17 @@ footer .socials a:hover {
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 999;
   }
-
   nav ul.open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
-
   .nav-toggle {
     display: flex;
   }
-
   nav a {
     padding: 0.5rem 0;
   }
-
   .stats {
     flex-direction: column;
     gap: 1.5rem;
@@ -731,7 +746,9 @@ footer .socials a:hover {
 }
 
 .post-card .post-thumb img {
-  /* Make blog thumbnails display their full 9:16 aspect ratio images without cropping.  Height is determined by aspect ratio so the entire image is visible. */
+  /* Make blog thumbnails display their full 9:16 aspect ratio images
+     without cropping.  Height is determined by aspect ratio so the entire image is
+     visible. */
   width: 100%;
   height: auto;
   aspect-ratio: 9 / 16;
@@ -763,11 +780,11 @@ footer .socials a:hover {
 }
 
 /*
-  The video wrapper styles set a maximum width on embedded videos and ensure they
-  scale gracefully with the viewport.  A slightly smaller max width than
+  The video wrapper styles set a maximum width on embedded videos and ensure
+  they scale gracefully with the viewport.  A slightly smaller max width than
   previously defined reduces overly large videos on desktop while allowing
-  responsive scaling on smaller screens.  A maximum height prevents videos from
-  exceeding the visible portion of the screen.
+  responsive scaling on smaller screens.  A maximum height prevents videos
+  from exceeding the visible portion of the screen.
 */
 .video-wrapper {
   position: relative;
@@ -894,4 +911,44 @@ footer .socials a:hover {
 .store-card ul li i {
   margin-right: 0.5rem;
   color: var(--color-gold-dark);
+}
+
+/*
+  Global paragraph spacing: insert space between consecutive paragraphs.
+  This rule ensures there is a line of whitespace between paragraphs
+  without overriding the margins on the first paragraph in a container.
+*/
+p + p {
+  margin-top: 1rem;
+}
+
+/*
+  Header indicator bar styles.  The bar is hidden by default and
+  becomes visible via the `.active` class applied from JavaScript.
+*/
+#header-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 999;
+  cursor: pointer;
+}
+
+#header-indicator::after {
+  content: ' ▼';
+  margin-left: 0.3rem;
+  font-size: 0.9rem;
+}
+
+#header-indicator.active {
+  display: flex;
 }
