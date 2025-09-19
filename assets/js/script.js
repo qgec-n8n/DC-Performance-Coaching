@@ -62,6 +62,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Performance gallery lightbox on the testimonials page.
+  // When an image inside .gallery-grid is clicked, display it in a full
+  // screen overlay with a dark background and a close button.  This
+  // overlay is created dynamically and appended to the body.
+  if (document.body.classList.contains('page-testimonials')) {
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+    if (galleryImages.length) {
+      // Create lightbox structure
+      const lightbox = document.createElement('div');
+      lightbox.id = 'gallery-lightbox';
+      lightbox.innerHTML =
+        '<div class="gallery-lightbox-content"><img src="" alt="" /><button class="gallery-lightbox-close">Close</button></div>';
+      document.body.appendChild(lightbox);
+      const lightboxImg = lightbox.querySelector('img');
+      const closeBtn = lightbox.querySelector('.gallery-lightbox-close');
+      // Show lightbox with clicked image
+      galleryImages.forEach((img) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('active');
+          // Prevent body from scrolling when lightbox is open
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      // Close lightbox and restore scrolling
+      const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeLightbox();
+      });
+      // Also allow clicking outside the image content to close the lightbox
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
+  }
+
   // Reveal elements when they enter the viewport
   const observerOptions = {
     threshold: 0.15,

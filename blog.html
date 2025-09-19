@@ -32,7 +32,8 @@
     <div id="cookie-banner" class="cookie-banner">
       <p>
         We use cookies to improve your browsing experience and analyse website traffic.  By clicking
-        “Accept”, you consent to our use of cookies.  For more details, please read our
+        “Accept”, you consent to our use of cookies.  For more details,
+        please read our
         <a href="privacy.html">Privacy Policy</a>.
       </p>
       <button id="cookie-accept-btn" class="btn">Accept</button>
@@ -130,49 +131,28 @@
                 <a href="blog_sprinting.html" class="btn secondary">Read More</a>
               </div>
             </article>
-            <!-- Critical mistake post -->
-            <article class="post-card">
-              <div class="post-thumb">
-                <!-- Use the dedicated AI critical mistake blog image -->
-                <img src="assets/images/new/AI_Critical_Mistake_Load_Tension_Blog.jpeg" alt="The Critical Mistake: Load vs. Tension" />
-              </div>
-              <div class="post-content">
-                <span class="post-tag">Training</span>
-                <h3 class="post-title">The Critical Mistake: Load vs. Tension</h3>
-                <p>Explore why chasing weight on the bar is less important than maximising muscle tension for true gains.</p>
-                <a href="blog_critical_mistake.html" class="btn secondary">Read More</a>
-              </div>
-            </article>
+            <!-- Additional posts can be added here -->
           </div>
         </div>
       </section>
 
-      <!-- Podcast appearances -->
-      <section class="section reveal" style="background-color:#121212;">
-        <div class="container">
-          <h2 class="section-title">Podcast Appearances</h2>
-          <p class="section-subtitle">Listen to Daniel Courtney discuss performance, training and mindset on these podcasts without leaving our site.</p>
-          <div class="grid grid-2" style="gap:2rem;">
-            <iframe src="https://open.spotify.com/embed/episode/7EspMCVziVTpok1x1DsCRx?utm_source=generator" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/episode/5MEPiwblOQM2F8IcQxGELw?utm_source=generator" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/episode/4j4YaF6pzoIkGVTRDxL89f?utm_source=generator" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
-            <iframe src="https://open.spotify.com/embed/episode/0ZqFyQgFcJ8i0Yt1jzNZc0?utm_source=generator" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
-          </div>
-        </div>
-      </section>
-    
-      <!-- Education videos section: formatted like other sections with a title, subtitle and side‑by‑side videos -->
+      <!-- Education videos section -->
       <section class="section reveal blog-education-videos">
         <div class="container">
           <h2 class="section-title">Education Videos</h2>
           <p class="section-subtitle">Learn proper technique and training principles with these short instructional clips.</p>
           <div class="video-grid">
-            <video controls src="assets/videos/DC_Education_Vid_1.mov"></video>
-            <video controls src="assets/videos/DC_Education_Vid_2.mp4"></video>
+            <!-- Wrap each video in a .video-wrapper so it scales responsively like other videos -->
+            <div class="video-wrapper">
+              <video controls src="assets/videos/DC_Education_Vid_1.mov"></video>
+            </div>
+            <div class="video-wrapper">
+              <video controls src="assets/videos/DC_Education_Vid_2.mp4"></video>
+            </div>
           </div>
         </div>
       </section>
-</main>
+    </main>
 
     <!-- Footer -->
     <footer>

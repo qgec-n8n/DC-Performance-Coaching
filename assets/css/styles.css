@@ -751,12 +751,13 @@ footer .socials a:hover {
 }
 
 .post-card .post-thumb img {
-  /* Make blog thumbnails display their full 9:16 aspect ratio images
-     without cropping.  Height is determined by aspect ratio so the entire image is
-     visible. */
+  /* Display the full image without cropping and allow it to scale
+     responsively with the viewport.  The max-height prevents the
+     thumbnail from becoming too tall on large screens while still
+     maintaining its aspect ratio. */
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 16;
+  max-height: 50vh;
   object-fit: contain;
 }
 
@@ -956,4 +957,60 @@ p + p {
 
 #header-indicator.active {
   display: flex;
+}
+
+/*
+  Lightbox for the Performance Gallery on the testimonials page.  When a
+  gallery image is clicked a full‑screen overlay appears with the
+  selected image centred on the screen.  A button allows users to
+  close the overlay and return to the gallery.  The overlay uses a
+  semi‑opaque black background to dim the rest of the page.
+*/
+#gallery-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+#gallery-lightbox.active {
+  display: flex;
+}
+
+.gallery-lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+}
+
+.gallery-lightbox-content img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-lightbox-close {
+  margin-top: 1rem;
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gallery-lightbox-close:hover {
+  background-color: var(--color-gold-dark);
 }
